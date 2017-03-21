@@ -105,6 +105,11 @@ input[type=text]:focus, textarea:focus {
       -moz-border-radius: 50px;
       -ms-border-radius: 50px;
       -o-border-radius: 50px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
       margin-right: 10px; }
       .topBar ul.socialMedia li:last-child {
         margin-right: 0px; }
@@ -251,9 +256,17 @@ input[type=text]:focus, textarea:focus {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
-    -o-border-radius: 50px; }
+    -o-border-radius: 50px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
     .pagination span.active {
       background-color: #000; }
+    .pagination span:hover {
+      background-color: gray;
+      cursor: pointer; }
 
 .thumb {
   max-width: 225px;

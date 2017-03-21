@@ -123,6 +123,7 @@ input[type=text]:focus, textarea:focus {
       display: inline-block;
       background: #787878 url(../images/social-media.png) 8px center no-repeat;
       @include border-radius(50px);
+      @include transition(0.5s);
       margin-right: 10px;
       &:last-child {
         margin-right: 0px;
@@ -298,8 +299,13 @@ input[type=text]:focus, textarea:focus {
     background-color: transparent;
     border: 3px solid #000;
     @include border-radius(50px);
+    @include transition(0.5s);
     &.active {
       background-color: #000;
+    }
+    &:hover {
+      background-color: gray;
+      cursor: pointer;
     }
 
   }
