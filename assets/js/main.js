@@ -2,18 +2,8 @@ $(function() {
 
   'use strict';
 
-  //menu mobile
-  $('#nav-btn').click(function(){
-    var slider = document.getElementById("nav-slide");
-    slider.style.height = window.innerHeight - 60 + "px";
-    if(slider.style.left == "0px") {
-      slider.style.left = "-250px";
-    }
-    else {
-      slider.style.left = "0px";
-    }
-  })
 
+  //// Slide home
 
   // set interval slide
   var slideAuto = setInterval(slideNext, 3000);
@@ -58,5 +48,23 @@ $(function() {
     $('.pagination span').removeClass('active');
     $('.pagination span:eq(' + slideThis + ')').addClass('active')
   }
+
+  ///// menu mobile
+  $('#nav-btn').click(function(){
+    var slider = document.getElementById("nav-slide");
+    slider.style.height = window.innerHeight - 60 + "px";
+    if(slider.style.left == "0px") {
+      slider.style.left = "-250px";
+    }
+    else {
+      slider.style.left = "0px";
+    }
+  })
+
+  ///// toogle nav
+  $('.btnToggle').click(function(){
+    console.log("clicou");
+		$('.topBar').slideToggle(300);
+	});
 
 })

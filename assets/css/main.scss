@@ -8,6 +8,41 @@ body {
   color: #666;
 }
 
+///// Mixins /////
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: all $transition ease;
+  -moz-transition: all $transition ease;
+  -ms-transition: all $transition ease;
+  -o-transition: all $transition ease;
+  transition: all $transition ease;
+}
+
+
+///// General /////
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -36,16 +71,27 @@ body {
   text-decoration: none;
   color: #fff;
   padding: 10px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
+  @include border-radius(7px);
+  @include transition(0.5s);
   border: 0;
+  &:hover {
+    background-color: gray;
+    cursor:pointer;
+  }
 
 }
 
 .link {
   color: #0099ff;
   text-decoration: none;
+  @include transition(0.5s);
+  &:hover {
+    color: gray;
+    cursor:pointer;
+  }
 }
+
+///// CSS Page /////
 
 .topBar {
   background-color: #2e2e2e;
@@ -76,8 +122,7 @@ body {
     li {
       display: inline-block;
       background: #787878 url(../images/social-media.png) 8px center no-repeat;
-      -webkit-border-radius: 50px;
-      border-radius: 50px;
+      @include border-radius(50px);
       margin-right: 10px;
       &:last-child {
         margin-right: 0px;
@@ -123,19 +168,35 @@ body {
 }
 
 .header {
-  margin-top: 41px;
+  .wrapper {
+    position: relative;
+  }
+}
+.btnToggle {
+  background-color: #2e2e2e;
+  color: #fff;
+  display: block;
+  width: 31px;
+  text-align: center;
+  text-decoration: none;
+  padding: 9px 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  @include border-radius(0 0 7px 7px);
+
 }
 
 .inputSearch {
   width: 205px;
   padding: 10px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
+  @include border-radius(7px);
   border: 0;
   background-color: #f1f1f1;
 }
 
 .navMain {
+  padding-top: 41px;
   border-bottom: 2px solid #f1f1f1;
   a {
     text-decoration: none;
@@ -209,7 +270,7 @@ body {
     }
     a {
       display: block;
-      width: 126px;
+      width: 110px;
       font-size: 16px;
       margin-top: 20px;
     }
@@ -236,8 +297,7 @@ body {
     height: 15px;
     background-color: transparent;
     border: 3px solid #000;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+    @include border-radius(50px);
     &.active {
       background-color: #000;
     }
@@ -246,11 +306,18 @@ body {
 }
 
 .thumb {
-  max-width: 219px;
+  max-width: 225px;
   text-align: center;
-  margin:0 25px 30px 0;
+  margin:0 20px 30px 0;
   &:nth-child(2n) {
     margin-right: 0px;
+  }
+
+  &:nth-child(3) {
+    margin-bottom: 0px;
+  }
+  &:nth-child(4) {
+    margin-bottom: 0px;
   }
   h5 {
     font-size: 16px;
@@ -373,8 +440,7 @@ footer {
       display: block;
       background-color: #232323;
       border: 0;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
+      @include border-radius(10px);
       padding: 11px;
       margin-bottom: 10px;
       padding-right: 0;
@@ -385,8 +451,7 @@ footer {
       height: 110px;
       background-color: #232323;
       border: 0;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
+      @include border-radius(10px);
       padding: 11px;
       margin-bottom: 10px;
       padding-right: 0;
@@ -414,7 +479,7 @@ display: block;
 #nav-btn {
   position: absolute;
   border: #Bababa 1px solid;
-  border-radius: 2px;
+  @include border-radius(2px);
   padding: 5px 10px;
   cursor: pointer;
   background-color: #fff;
